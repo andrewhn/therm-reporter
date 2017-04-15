@@ -1,0 +1,110 @@
+name:                therm-reporter
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/therm-reporter#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2017 Author name here
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     ThermReporter.Types
+                     , ThermReporter.Webservice
+                     , ThermReporter.Websockets
+                     , ThermReporter.Persist
+  build-depends:       base >= 4.7 && < 5
+                     , wai
+                     , wai-extra
+                     , warp
+                     , http-types
+                     , text
+                     , aeson
+                     , generics-sop
+                     , scientific
+                     , bytestring
+                     , mtl
+                     , resourcet
+                     , jwt
+                     , uuid
+                     , containers
+                     , wai-middleware-static
+                     , wai-websockets
+                     , websockets
+                     , servant
+                     , transformers
+                     , network
+                     , filepath
+                     , directory
+                     , wai-app-static
+                     , system-filepath
+                     , http-api-data
+                     , uuid-types
+                     , sqlite-simple
+                     , servant-server
+  default-language:    Haskell2010
+  default-extensions:   DataKinds
+                      , TypeFamilies
+                      , DeriveGeneric
+                      , TypeOperators
+                      , OverloadedStrings
+                      , FlexibleContexts
+                      , RecordWildCards
+                      , MultiParamTypeClasses
+                      , DuplicateRecordFields
+
+executable therm-reporter
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , therm-reporter
+                     , wai
+                     , containers
+                     , warp
+                     , http-types
+                     , text
+                     , wai-extra
+                     , bytestring
+                     , uuid
+                     , servant
+                     , servant-server
+                     , websockets
+                     , wai-websockets
+                     , wai-middleware-static
+                     , aeson
+                     , scientific
+                     , mtl
+                     , sqlite-simple
+                     , transformers
+                     , time
+  default-language:    Haskell2010
+  default-extensions:   DataKinds
+                      , TypeFamilies
+                      , DeriveGeneric
+                      , TypeOperators
+                      , OverloadedStrings
+                      , FlexibleContexts
+                      , RecordWildCards
+                      , MultiParamTypeClasses
+                      , DuplicateRecordFields
+
+
+test-suite therm-reporter-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , therm-reporter
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/therm-reporter
